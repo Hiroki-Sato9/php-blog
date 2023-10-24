@@ -12,7 +12,6 @@ class PostController extends Controller
     public function index(Post $post) {
         
         return view('posts/index')
-            ->with(['posts' => $post
-            ->orderByDesc('updated_at')->limit(10)->get()]);
+            ->with(['posts' => $post->getPaginateByLimit(5)]);
     }
 }
