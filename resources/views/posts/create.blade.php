@@ -11,7 +11,8 @@
 
     </head>
     <body class="antialiased">
-        <form action="#" method="post">
+        <form action="/posts" method="post">
+        @csrf
             <div>
                 <label for="title">title</label>
                 <input type="text" name="title" />
