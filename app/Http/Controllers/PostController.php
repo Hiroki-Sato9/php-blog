@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Post;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -28,11 +29,13 @@ class PostController extends Controller
         
     }
     
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $post = new Post();
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
+        $validated = $request->validated();
+        
+        $post->title = $validated['title'];
+        $post->body = $validated['body'];
         $post->save();
         return redirect('/posts');
     }
