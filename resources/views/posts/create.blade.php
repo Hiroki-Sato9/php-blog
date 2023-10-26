@@ -11,15 +11,20 @@
 
     </head>
     <body class="antialiased">
+        @foreach ($errors->all() as $error)
+           <div>
+               {{ $error }}
+           </div> 
+        @endforeach
         <form action="/posts" method="post">
         @csrf
             <div>
                 <label for="title">title</label>
-                <input type="text" name="title" />
+                <input type="text" name="title" value="{{ old('title') }}" />
             </div>
             <div>
                 <label for="body">body</label>
-                <textarea name="body"></textarea>
+                <textarea name="body">{{ old('body') }}</textarea>
             </div>
             <input type="submit" value="保存する">
         </form>
