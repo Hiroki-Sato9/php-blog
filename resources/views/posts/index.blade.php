@@ -7,7 +7,7 @@
             @foreach ($posts as $post)
             <div class="post">
                 <a href={{ url('posts/' . $post->id) }}>
-                    <h2 class="title">{{ $post->title }}</h2>
+                    {{ $post->title }}
                 </a>
                 <p class="body">{{ $post->body }}</p>
             </div>
