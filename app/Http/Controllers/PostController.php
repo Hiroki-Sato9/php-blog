@@ -15,9 +15,9 @@ class PostController extends Controller
             ->with(['posts' => $post->getPaginateByLimit(5)]);
     }
     
-    public function show($id) 
+    public function show(Post $post) 
     {
-        $post = Post::find($id);
+        // dd($post);
         return view('posts/show')
             ->with(['post' => $post]);
     }
