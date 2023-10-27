@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 
+
+
 class PostController extends Controller
 {
     public function index(Post $post) {
@@ -40,5 +42,13 @@ class PostController extends Controller
     {
         return view('posts.edit')
             ->with(['post' => $post]);
+    }
+    
+    public function update(Request $request, Post $post)
+    {
+        $input = $request['post'];
+        // dd($input);
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id); 
     }
 }

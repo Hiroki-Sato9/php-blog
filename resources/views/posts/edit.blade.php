@@ -11,8 +11,10 @@
 
     </head>
     <body class="antialiased">
-        <form action="/posts" method="patch">
-        @csrf
+        <form action="/posts/{{ $post->id }}" method="post">
+             <!--@csrf-->
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="title">
                 <h2>Title</h2>
                 <input type="text" name="post[title]" value="{{ $post->title }}" />

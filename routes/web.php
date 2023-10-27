@@ -14,6 +14,7 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::put('/posts/{post}', [PostController::class, 'update']);
 
 Route::get('/', [PostController::class, 'index']);
 
