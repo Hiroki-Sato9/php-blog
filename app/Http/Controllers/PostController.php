@@ -29,14 +29,10 @@ class PostController extends Controller
         
     }
     
-    public function store(PostRequest $request)
+    public function store(PostRequest $request, Post $post)
     {
-        $post = new Post();
-        $validated = $request->validated();
-        
-        $post->title = $validated['title'];
-        $post->body = $validated['body'];
-        $post->save();
-        return redirect('/posts');
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
     }
 }

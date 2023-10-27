@@ -11,22 +11,19 @@
 
     </head>
     <body class="antialiased">
-        @foreach ($errors->all() as $error)
-           <div>
-               {{ $error }}
-           </div> 
-        @endforeach
         <form action="/posts" method="post">
         @csrf
-            <div>
-                <label for="title">title</label>
-                <input type="text" name="title" value="{{ old('title') }}" />
+            <div class="title">
+                <h2>Title</h2>
+                <input type="text" name="post[title]" value="{{ old('post.title') }}" />
+                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
-            <div>
-                <label for="body">body</label>
-                <textarea name="body">{{ old('body') }}</textarea>
+            <div class="body">
+                <h2>Body</h2>
+                <textarea name="post[body]">{{ old('post.body') }}</textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
-            <input type="submit" value="保存する">
+            <input type="submit" value="store">
         </form>
         <div class="footer">
             <a href={{ url("/posts/"); }}>元に戻る</a>
