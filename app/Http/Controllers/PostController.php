@@ -44,7 +44,7 @@ class PostController extends Controller
             ->with(['post' => $post]);
     }
     
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $input = $request['post'];
         // dd($input);
