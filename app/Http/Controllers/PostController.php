@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 
+
+
 class PostController extends Controller
 {
     public function index(Post $post) {
@@ -29,14 +31,24 @@ class PostController extends Controller
         
     }
     
-    public function store(PostRequest $request)
+    public function store(PostRequest $request, Post $post)
     {
-        $post = new Post();
-        $validated = $request->validated();
-        
-        $post->title = $validated['title'];
-        $post->body = $validated['body'];
-        $post->save();
-        return redirect('/posts');
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
+    }
+    
+    public function edit(Post $post)
+    {
+        return view('posts.edit')
+            ->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request, Post $post)
+    {
+        $input = $request['post'];
+        // dd($input);
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id); 
     }
 }
