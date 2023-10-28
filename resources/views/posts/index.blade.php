@@ -14,6 +14,15 @@
                 <button onclick="location.href='/posts/{{ $post->id }}/edit'">
                     編集
                 </button>
+                
+                <form action="/posts/{{ $post->id }}" method="post">
+                @csrf
+                @method('delete')
+                    <button type="submit" onclick='return confirm("are you sure?")'>
+                        削除
+                    </button>
+                </form>
+                
             </div>
             @endforeach
         </div>
