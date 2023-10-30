@@ -14,11 +14,29 @@
                 <button onclick="location.href='/posts/{{ $post->id }}/edit'">
                     編集
                 </button>
+                
+                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                @csrf
+                @method('delete')
+                    <button type="button" onclick='deletePost({{ $post->id }})'>
+                        削除
+                    </button>
+                </form>
+                
             </div>
             @endforeach
         </div>
         <div class="paginate">
             {{ $posts->links() }}
         </div>
+        <script>
+            let deletePost = (id) => {
+                'use strict'
+                
+                if (confirm('削除すると復元できません。\n本当に削除しますか')){
+                    document.querySelector(`#form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>
