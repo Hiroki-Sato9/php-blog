@@ -23,6 +23,15 @@
                 <textarea name="post[body]">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
+            <div class="category">
+                <h2>Category</h2>
+                <select name="post[category_id]">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                <p class="category__error" style="color:red">{{ $errors->first('post.category') }}</p>
+            </div>
             <input type="submit" value="store">
         </form>
         <div class="footer">

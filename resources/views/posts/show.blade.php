@@ -13,11 +13,12 @@
     <body class="antialiased">
         <h1>{{ $post->title }}</h1>
         <div class="content">
+            <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
             <div class="content_post">
                 <h3>本文</h3>
                 <p>{{ $post->body }}</p>
             </div>
-            <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
+            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
         </div>
         <div class="footer">
             <a href={{ url("/posts/"); }}>元に戻る</a>
