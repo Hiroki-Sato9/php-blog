@@ -10,7 +10,7 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     </head>
-    <body class="antialiased">
+    <x-app-layout class="antialiased">
         <h1>{{ $post->title }}</h1>
         <div class="content">
             <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
@@ -21,7 +21,7 @@
             <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
         </div>
         <div class="footer">
-            <a href={{ url("/posts/"); }}>元に戻る</a>
+            <a href={{ url("/"); }}>元に戻る</a>
         </div>
-    </body>
+    </x-app-layout>
 </html>

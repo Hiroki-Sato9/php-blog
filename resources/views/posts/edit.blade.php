@@ -10,7 +10,7 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     </head>
-    <body class="antialiased">
+    <x-app-layout class="antialiased">
         <h1 class="編集画面"></h1>
         <div class="content">
             <form action="/posts/{{ $post->id }}" method="post">
@@ -30,8 +30,8 @@
                 <input type="submit" value="保存">
             </form>
             <div class="footer">
-                <a href={{ url("/posts/"); }}>元に戻る</a>
+                <a href={{ url("/"); }}>元に戻る</a>
             </div>
         </div>
-    </body>
+    </x-app-layout>
 </html>

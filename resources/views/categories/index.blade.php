@@ -1,5 +1,5 @@
 <html>
-    <body>
+    <x-app-layout>
         <h1>title</h1>
         <p>This is a sample body.</p>
         <a href="/posts/create">投稿作成</a>
@@ -39,5 +39,5 @@
                 }
             }
         </script>
-    </body>
+    </x-app-layout>
 </html>

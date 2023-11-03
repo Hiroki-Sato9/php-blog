@@ -10,7 +10,7 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     </head>
-    <body class="antialiased">
+    <x-app-layout class="antialiased">
         <form action="/posts" method="post">
         @csrf
             <div class="title">
@@ -35,7 +35,7 @@
             <input type="submit" value="store">
         </form>
         <div class="footer">
-            <a href={{ url("/posts/"); }}>元に戻る</a>
+            <a href={{ url("/"); }}>元に戻る</a>
         </div>
-    </body>
+    </x-app-layouts>
 </html>
