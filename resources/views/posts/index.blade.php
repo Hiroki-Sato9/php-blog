@@ -4,6 +4,14 @@
         <p>This is a sample body.</p>
         <a href="/posts/create">投稿作成</a>
         
+        <div class="questions">
+            @foreach ($questions as $question)
+            <div>
+                <a href="https://teratail.com/questions/{{ $question['id'] }}">{{ $question['title'] }}</a>
+            </div>
+            @endforeach
+        </div>
+        
         <div class="posts">
             @foreach ($posts as $post)
             <div class="post">
